@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Mozzart Rezultati</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button expand="block" (click)="loadResults()">Učitaj završene mečeve</ion-button>
+
+  <ion-spinner *ngIf="loading"></ion-spinner>
+
+  <ion-grid *ngIf="matches.length > 0">
+    <ion-row>
+      <ion-col><b>Timovi</b></ion-col>
+      <ion-col><b>Rezultat</b></ion-col>
+      <ion-col><b>Vreme</b></ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let m of matches">
+      <ion-col>{{ m.team }}</ion-col>
+      <ion-col>{{ m.result }}</ion-col>
+      <ion-col>{{ m.time }}</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
